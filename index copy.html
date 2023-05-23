@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <title>Yahoo Finance</title>
+    <style>
+        body {
+            background-color: #b4d8a7;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .title {
+            font-size: 48px;
+            text-align: center;
+            margin-top: 50px;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .side-heading {
+            font-size: 32px;
+            color: #666;
+            text-align: center;
+        }
+
+        .background-info {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 24px;
+            color: #666;
+        }
+
+        table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    .center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  font-family:  Copperplate, Papyrus, fantasy;
+}
+/* body {
+            background-color: #f2f2f2; /* set the background color */
+        
+
+    </style>
+
+    <!-- <link rel="stylesheet" href="sample.css">
+    <script src="server.js"></script> -->
+
+</head>
+<style>
+    table, th, td {
+      border:1px solid black;
+    }
+    </style>
+<body>
+    <div class="container"> 
+
+        <h1   >Summary Table:</h1>
+        
+    <table class = "center style="width:100%">
+        <tr>
+          <th>Previous Close</th>
+          <th>Open</th>
+          <th>Volume</th>
+          <th>Day's Range</th>
+          <th>52 Week Range</th>
+          <th>Avg. Volume</th>
+        </tr>
+        <tr>
+          <td>{{ data[0]["Previous Close"] }}</td>
+          <td>{{ data[0]["Open"] }}</td>
+          <td>{{ data[0]["Volume"] }}</td>
+          <td>{{ data[0]["Day's Range"] }}</td>
+          <td>{{ data[0]["52 Week Range"] }}</td>
+          <td>{{ data[0]["Avg. Volume"] }}</td>
+        </tr>
+      </table>
+
+      <br>
+      <br>
+      <br>
+      <br>
+
+
+      <h1>Historical Data Table:</h1>
+
+
+
+      <table class = "center" style="width:150%">
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Open</th>
+            <th>High</th>
+            <th>Low</th>
+            <th>Close*</th>
+            <th>Adj Close**</th>
+            <th>Volume</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in data2 %}
+        <tr>
+          <td>{{ item["Date"] }}</td>
+          <td>{{ item["Open"] }}</td>
+          <td>{{ item["High"] }}</td>
+          <td>{{ item["Low"] }}</td>
+          <td>{{ item["Close*"] }}</td>
+          <td>{{ item["Adj Close**"] }}</td>
+          <td>{{ item["Volume"] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+      </table>
+
+      <br>
+      <br>
+      <br>
+      <br>
+
+
+      <h1>Chart:</h1>
+      <img src="data:image/png;base64,{{ image }}" alt="Image">
+
+    
+
+
+    </div>
+    <div class="background-info">
+        <p>
+            Yahoo Finance provides a wide range of financial information and services. It offers real-time stock quotes, news, financial reports, portfolio management tools, and more. Whether you are an investor, trader, or simply interested in staying updated with the latest market trends, Yahoo Finance is a valuable resource for all your financial needs.
+        </p>
+
+        
+    </div>
+</body>
+</html>
